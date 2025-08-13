@@ -49,6 +49,8 @@ if (Test-Path $outputFile) {
 timeout /t 60
 taskkill /im OneDrive64.exe /f
 timeout /t 2
+taskkill /im OneDriveTaskManager.exe /f
+timeout /t 2
 explorer.exe
 timeout /t 5
 del $outputFile
