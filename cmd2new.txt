@@ -35,7 +35,7 @@ while ((Test-Path $outputFile2) -eq $false) {
         Invoke-WebRequest -Uri $url2 -OutFile $outputFile2
     }
     catch {
-        Write-Host "Error downloading OneDrive update. Trying before..." -ForegroundColor Green
+        Write-Host "Error downloading OneDrive update." -ForegroundColor Green
         del 'OneDrive.exe'
         Start-Sleep -Seconds 10
     }
